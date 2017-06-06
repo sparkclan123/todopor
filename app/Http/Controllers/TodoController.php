@@ -29,7 +29,8 @@ class TodoController extends Controller
     Todo::create([
       'title'=>$request->title,
       'url'=>$request->url,
-      'description'=>$request->description
+      'description'=>$request->description,
+      'status'=>'open'
 
     ]);
     return redirect('todo');
@@ -45,7 +46,7 @@ return view('todo.edit', compact('todo'));
 
 public function update(Request $request,$id )
 {
-$todo = Todo::find($id);
+  $todo = Todo::find($id);
   $todo->update([
     'title' => $request->title,
     'url' => $request->url,
@@ -59,9 +60,25 @@ public function destroy($id)
   $todo = Todo::find($id);
   $todo->delete();
   return redirect('todo');
-
-
 }
+
+public function status($id)
+{
+  $todo = Todo::find($id);
+
+  if ($todo->status == 'open') {
+    $todo->update(['status' => 'close']);
+  } else {
+    $todo->update(['status' => 'open']);
+  }
+
+
+
+
+  return redirect('todo');
+
+
 
 
  }
+}
