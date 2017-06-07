@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <link rel="stylesheet" href="/css/suwit.css">
+
 <div class="container">
   <h1>Todo</h1>
   <table class="table table-striped">
@@ -14,6 +14,7 @@
     <th>Status</th>
     <th>ปุ่ม</th>
     <th>Action</th>
+    <th>Date</th>
   </tr>
   <a href="todo/create" type="text" class="btn btn-lg btn-primary">ADD</a href="/">
 
@@ -32,7 +33,7 @@
       <form method="post" action="/todo/{{ $todo->id}}/kuy">
       <input name="_token" type="hidden" value="{{ csrf_token() }}">
       <input name="_method" type="hidden" value="DELETE">
-        <button type="submit" class="btn  btn-lg btn-danger">chang</button>
+        <button type="submit" class="btn  btn-lg btn-warning">change</button>
     </form>
    </td>
 
@@ -46,6 +47,7 @@
         <button type="submit" class="btn  btn-lg btn-danger">Delete</button>
       </form>
     </td>
+<td>{{$todo->date}}</td>
   </tr>
     @endforeach
 </table>

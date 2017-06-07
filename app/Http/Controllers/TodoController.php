@@ -30,7 +30,8 @@ class TodoController extends Controller
       'title'=>$request->title,
       'url'=>$request->url,
       'description'=>$request->description,
-      'status'=>'open'
+      'status'=>'open',
+      'date'=>$request->date
 
     ]);
     return redirect('todo');
@@ -50,7 +51,8 @@ public function update(Request $request,$id )
   $todo->update([
     'title' => $request->title,
     'url' => $request->url,
-    'description' => $request->description
+    'description' => $request->description,
+    'date' => $request->date
   ]);
 return redirect('todo');
 }
@@ -71,14 +73,14 @@ public function status($id)
   } else {
     $todo->update(['status' => 'open']);
   }
-
-
-
-
   return redirect('todo');
-
-
-
-
  }
+
+
+
+
+
+
+
+
 }

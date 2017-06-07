@@ -19,6 +19,7 @@ class CreateTodosTable extends Migration
           $table->string('url');
           $table->text('description');
           $table->text('status');
+          $table->date('date');
           $table->timestamps();
         });
     }
