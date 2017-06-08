@@ -1,4 +1,4 @@
-@extends('layouts.app')
+ @extends('layouts.app')
 
 @section('content')
   <link rel="stylesheet" media="all" type="text/css" href="{{ asset('car/jquery-ui.css')}} "/>

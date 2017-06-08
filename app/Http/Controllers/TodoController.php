@@ -9,6 +9,7 @@ class TodoController extends Controller
 {
   public function index()
   {
+
     $todos = Todo::paginate(10);
     return view('todo.index', compact('todos'));
 
@@ -31,7 +32,8 @@ class TodoController extends Controller
       'url'=>$request->url,
       'description'=>$request->description,
       'status'=>'open',
-      'date'=>$request->date
+      'date'=>$request->date,
+      'user_id' => auth()->user()->id
 
     ]);
     return redirect('todo');
@@ -52,7 +54,8 @@ public function update(Request $request,$id )
     'title' => $request->title,
     'url' => $request->url,
     'description' => $request->description,
-    'date' => $request->date
+    'date' => $request->date,
+    'user_id' => auth()->user()->id
   ]);
 return redirect('todo');
 }

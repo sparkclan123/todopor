@@ -11,7 +11,17 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        
+        <link rel="stylesheet" media="all" type="text/css" href="{{ asset('car/jquery-ui.css')}} "/>
+        <link rel="stylesheet" media="all" type="text/css" href="{{ asset('car/jquery-ui-timepicker-addon.css')}}" />
+          <script src="{{ asset('js/app.js') }}"></script>
+      <script src="{{ asset('car/jquery-1.10.2.min.js') }}"></script>
+        <script src="{{ asset('car/jquery-ui.min.js') }}"></script>
+        <script src="{{ asset('car/jquery-ui-timepicker-addon.js') }}"></script>
+          <script src="{{ asset('car/jquery-ui-sliderAccess.js') }}"></script>
+
 </head>
 <body>
     <div id="app">
@@ -75,6 +85,6 @@
     </div>
 
     <!-- Scripts -->
-  <!--<script src="{{ asset('js/app.js') }}"></script>-->
+
 </body>
 </html>

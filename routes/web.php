@@ -20,9 +20,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-
-
 Route::get('/todo','TodoController@index');
+Route::group(['middleware'=>['auth']], function (){
+
 
 Route::post('/todo','TodoController@store');
 Route::get('/todo/{todo}/edit','TodoController@edit');
@@ -30,3 +30,4 @@ Route::post('/todo/{todo}','TodoController@update');
 Route::get('/todo/create','TodoController@create');
 Route::delete('/todo/{todo}','TodoController@destroy');
 Route::delete('/todo/{todo}/kuy','TodoController@status');
+});
